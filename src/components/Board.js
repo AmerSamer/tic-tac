@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import History from "./History";
 
 let arrayLength = []
-let arr = ['', '', '', '', '', '', '', '', '']
+let arr = [['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['','']]
 class Board extends React.Component {
     constructor(props) {
         super(props)
@@ -173,6 +173,7 @@ class Board extends React.Component {
     inc9() {
         // console.log(arr.length);
         if (this.state.type9 === '') {
+            console.log('9');
             if (this.state.typeBool === true) {
                 this.setState({ type9: 'X', typeBool: false, turn: 'O' });
                 arrayLength.push(['X', '9'])
@@ -184,12 +185,22 @@ class Board extends React.Component {
         setTimeout(() => {
             this.winn()
         }, 1);
-
+console.log('99');
     }
     onHistoryClick = (arrayLength, index) => {
-        arr = ['', '', '', '', '', '', '', '', '']
+        arr = [['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['','']]
+        if(index % 2 === 1 && this.state.turn === 'O'){
+            this.setState({
+                typeBool: true , turn: 'X'
+            });
+        }else if(index % 2 === 0 && this.state.turn === 'X'){
+            this.setState({
+                typeBool: false, turn: 'O'
+            });
+        }
         for (let i = 0; i <= index; i++) {
             arr[arrayLength[i][1] - 1] = arrayLength[i][0]
+            // console.log(arr[8][0]);
             this.setState({
                 type: arr[0][0], type2: arr[1][0], type3: arr[2][0], type4: arr[3][0]
                 , type5: arr[4][0], type6: arr[5][0], type7: arr[6][0], type8: arr[7][0], type9: arr[8][0]
