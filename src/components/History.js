@@ -8,14 +8,12 @@ class History extends React.Component {
 
     render() {
         return (
-                <div
+                <input
                     key={this.props.index}
                     onClick={() => this.props.method(this.props.arr, this.key)}
                     type="button"
-                    // value={this.props.val[1]} 
-                   >
-                       {this.props.val[1]} 
-                    </div>
+                    value={this.props.val[1]} 
+                   />
         )
     }
 }
