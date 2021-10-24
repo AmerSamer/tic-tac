@@ -1,9 +1,9 @@
-// import { render } from "@testing-library/react";
 import React from "react";
 import History from "./History";
 
 let arrayLength = []
-let arr = [['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['','']]
+let arr = [['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', '']]
+
 class Board extends React.Component {
     constructor(props) {
         super(props)
@@ -12,7 +12,6 @@ class Board extends React.Component {
             type7: '', type8: '', type9: '', typeBool: true, turn: 'X', winner: '', isWin: 'false', isTurn: ''
         }
 
-        // this.state = { types: '', typeBools: true }
         this.inc = this.inc.bind(this)
         this.inc2 = this.inc2.bind(this)
         this.inc3 = this.inc3.bind(this)
@@ -23,7 +22,6 @@ class Board extends React.Component {
         this.inc8 = this.inc8.bind(this)
         this.inc9 = this.inc9.bind(this)
         this.winn = this.winn.bind(this)
-        // onHistoryClick
         this.onHistoryClick = this.onHistoryClick.bind(this)
     }
 
@@ -59,7 +57,6 @@ class Board extends React.Component {
                 arrayLength.push(['O', '1'])
             }
         }
-        // console.log(arrayLength[0][1]);
         setTimeout(() => {
             this.winn()
         }, 1);
@@ -74,7 +71,6 @@ class Board extends React.Component {
                 arrayLength.push(['O', '2'])
             }
         }
-        // console.log(arrayLength[0][1]);
         setTimeout(() => {
             this.winn()
         }, 1);
@@ -171,7 +167,6 @@ class Board extends React.Component {
 
     }
     inc9() {
-        // console.log(arr.length);
         if (this.state.type9 === '') {
             console.log('9');
             if (this.state.typeBool === true) {
@@ -185,23 +180,22 @@ class Board extends React.Component {
         setTimeout(() => {
             this.winn()
         }, 1);
-console.log('99');
+        console.log('99');
     }
     onHistoryClick = (arrayLength, index) => {
-        arr = [['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['','']]
-        if(index % 2 === 1 && this.state.turn === 'O' ){
+        arr = [['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', '']]
+        if (index % 2 === 1 && this.state.turn === 'O') {
             this.setState({
-                typeBool: true , turn: 'X'  ,winner: '',isWin: 'false', isTurn: ''
+                typeBool: true, turn: 'X', winner: '', isWin: 'false', isTurn: ''
             });
-        }if(index % 2 === 0 && this.state.turn === 'X' ){
+        } if (index % 2 === 0 && this.state.turn === 'X') {
             this.setState({
-                typeBool: false, turn: 'O'  ,winner: '', isWin: 'false', isTurn: ''
+                typeBool: false, turn: 'O', winner: '', isWin: 'false', isTurn: ''
             });
         }
-        
+
         for (let i = 0; i <= index; i++) {
             arr[arrayLength[i][1] - 1] = arrayLength[i][0]
-            // console.log(arr[8][0]);
             this.setState({
                 type: arr[0][0], type2: arr[1][0], type3: arr[2][0], type4: arr[3][0]
                 , type5: arr[4][0], type6: arr[5][0], type7: arr[6][0], type8: arr[7][0], type9: arr[8][0]
@@ -233,20 +227,10 @@ console.log('99');
                     <br />
                     History:
                     {arrayLength.map((val, index) => {
-                        // console.log(val);
                         return (
                             <History method={() => this.onHistoryClick(arrayLength, index)} arr={arrayLength} val={val} key={index} />
-                    //     <input
-                    //     key={index}
-                    // onClick={() => this.onHistoryClick(arrayLength, index)}
-                    // type="button"
-                    // value={val[1]} />
-                    );
-                    }
-                    )
-                    }
-                
-
+                        );
+                    })}
                 </div>
             </div>
         )
