@@ -189,15 +189,16 @@ console.log('99');
     }
     onHistoryClick = (arrayLength, index) => {
         arr = [['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['',''], ['','']]
-        if(index % 2 === 1 && this.state.turn === 'O'){
+        if(index % 2 === 1 && this.state.turn === 'O' ){
             this.setState({
-                typeBool: true , turn: 'X'
+                typeBool: true , turn: 'X'  ,winner: '',isWin: 'false', isTurn: ''
             });
-        }else if(index % 2 === 0 && this.state.turn === 'X'){
+        }if(index % 2 === 0 && this.state.turn === 'X' ){
             this.setState({
-                typeBool: false, turn: 'O'
+                typeBool: false, turn: 'O'  ,winner: '', isWin: 'false', isTurn: ''
             });
         }
+        
         for (let i = 0; i <= index; i++) {
             arr[arrayLength[i][1] - 1] = arrayLength[i][0]
             // console.log(arr[8][0]);
