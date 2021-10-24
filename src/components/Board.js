@@ -1,5 +1,5 @@
-import { render } from "@testing-library/react";
-import React, { useState } from "react";
+// import { render } from "@testing-library/react";
+import React from "react";
 import History from "./History";
 
 let arrayLength = []
@@ -28,24 +28,24 @@ class Board extends React.Component {
     }
 
     winn() {
-        if (this.state.type === 'X' && this.state.type2 === 'X' && this.state.type3 === 'X'
-            || this.state.type4 === 'X' && this.state.type5 === 'X' && this.state.type6 === 'X'
-            || this.state.type7 === 'X' && this.state.type8 === 'X' && this.state.type9 === 'X'
-            || this.state.type === 'X' && this.state.type4 === 'X' && this.state.type7 === 'X'
-            || this.state.type2 === 'X' && this.state.type5 === 'X' && this.state.type8 === 'X'
-            || this.state.type3 === 'X' && this.state.type6 === 'X' && this.state.type9 === 'X'
-            || this.state.type === 'X' && this.state.type5 === 'X' && this.state.type9 === 'X'
-            || this.state.type3 === 'X' && this.state.type5 === 'X' && this.state.type7 === 'X') {
+        if ((this.state.type === 'X' && this.state.type2 === 'X' && this.state.type3 === 'X')
+            || (this.state.type4 === 'X' && this.state.type5 === 'X' && this.state.type6 === 'X')
+            || (this.state.type7 === 'X' && this.state.type8 === 'X' && this.state.type9 === 'X')
+            || (this.state.type === 'X' && this.state.type4 === 'X' && this.state.type7 === 'X')
+            || (this.state.type2 === 'X' && this.state.type5 === 'X' && this.state.type8 === 'X')
+            || (this.state.type3 === 'X' && this.state.type6 === 'X' && this.state.type9 === 'X')
+            || (this.state.type === 'X' && this.state.type5 === 'X' && this.state.type9 === 'X')
+            || (this.state.type3 === 'X' && this.state.type5 === 'X' && this.state.type7 === 'X')) {
             this.setState({ winner: 'X', isWin: '', isTurn: 'false' });
         }
-        if (this.state.type === 'O' && this.state.type2 === 'O' && this.state.type3 === 'O'
-            || this.state.type4 === 'O' && this.state.type5 === 'O' && this.state.type6 === 'O'
-            || this.state.type7 === 'O' && this.state.type8 === 'O' && this.state.type9 === 'O'
-            || this.state.type === 'O' && this.state.type4 === 'O' && this.state.type7 === 'O'
-            || this.state.type2 === 'O' && this.state.type5 === 'O' && this.state.type8 === 'O'
-            || this.state.type3 === 'O' && this.state.type6 === 'O' && this.state.type9 === 'O'
-            || this.state.type === 'O' && this.state.type5 === 'O' && this.state.type9 === 'O'
-            || this.state.type3 === 'O' && this.state.type5 === 'O' && this.state.type7 === 'O') {
+        if ((this.state.type === 'O' && this.state.type2 === 'O' && this.state.type3 === 'O')
+            || (this.state.type4 === 'O' && this.state.type5 === 'O' && this.state.type6 === 'O')
+            || (this.state.type7 === 'O' && this.state.type8 === 'O' && this.state.type9 === 'O')
+            || (this.state.type === 'O' && this.state.type4 === 'O' && this.state.type7 === 'O')
+            || (this.state.type2 === 'O' && this.state.type5 === 'O' && this.state.type8 === 'O')
+            || (this.state.type3 === 'O' && this.state.type6 === 'O' && this.state.type9 === 'O')
+            || (this.state.type === 'O' && this.state.type5 === 'O' && this.state.type9 === 'O')
+            || (this.state.type3 === 'O' && this.state.type5 === 'O' && this.state.type7 === 'O')) {
             this.setState({ winner: 'O', isWin: '', isTurn: 'false' });
         }
     }
@@ -254,6 +254,3 @@ console.log('99');
 }
 
 export default Board;
-{/* <Winner type={this.state.type} type2={this.state.type2} type3={this.state.type3} type4={this.state.type4}
-                    type5={this.state.type5} type6={this.state.type6} type7={this.state.type7} type8={this.state.type8}
-                    type9={this.state.type9} winner={this.state.winner} turn={this.state.turn}/> */}
